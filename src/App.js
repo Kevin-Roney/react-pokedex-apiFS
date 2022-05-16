@@ -21,7 +21,10 @@ function App() {
   }
   return (
     <div className="App">
-      
+      <form onSubmit={handleSubmit}>
+        <input onChange={e => setQuery(e.target.value)}/>
+        <button>Search</button>
+      </form>
     </div>
   );
 }
