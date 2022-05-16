@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getPokemon } from './services/fetch-utils';
+import { getPokemon } from './services/fetch-utils.js';
 import './App.css';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   }, []); //eslint-disable-line
 
   async function handleSubmit(e) {
-    e.preventDefault;
+    e.preventDefault();
     load();
   }
   return (
@@ -25,6 +25,13 @@ function App() {
         <input onChange={e => setQuery(e.target.value)}/>
         <button>Search</button>
       </form>
+      {
+        pokemon.map((poke, i) =>
+          <div key={poke.pokemon + i}>
+            <h2>{poke.pokemon}</h2>
+            <img src={poke.url_image} />
+          </div>)
+      }
     </div>
   );
 }
