@@ -7,13 +7,12 @@ const headers = {
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
 };
 
-
 exports.handler = async (event, context) => {
   try {
-    const response = await fetch('https://cat-fact.herokuapp.com/facts');
+    const response = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${event.queryStringParameters.query}`);
     const data = await response.json();
     const json = JSON.stringify({ data });
-    
+
     return { 
       statusCode: 200, 
       headers,
