@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.isloading-true {
+  cursor: wait;
+}
+
+.isloading-false {
+  cursor: default;
+}

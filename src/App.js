@@ -5,9 +5,12 @@ import './App.css';
 function App() {
   const [pokemon, setPokemon] = useState([]);
   const [query, setQuery] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   async function load() {
+    setIsLoading(true);
     const { data: { results } } = await getPokemon(query);
+    setIsLoading(false);
     setPokemon(results);
   }
 
@@ -20,7 +23,7 @@ function App() {
     load();
   }
   return (
-    <div className="App">
+    <div className={`App isloading-${isLoading}`} >
       <form onSubmit={handleSubmit}>
         <input onChange={e => setQuery(e.target.value)}/>
         <button>Search</button>
