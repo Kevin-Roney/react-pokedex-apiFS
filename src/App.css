@@ -1,3 +1,11 @@
+form {
+  margin-left: 10px;
+}
+
+.App {
+  background-color: darkgray;
+}
+
 .pokemonList {
   display: flex;
   flex-wrap: wrap;
