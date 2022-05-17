@@ -28,13 +28,19 @@ function App() {
         <input onChange={e => setQuery(e.target.value)}/>
         <button>Search</button>
       </form>
-      {
-        pokemon.map((poke, i) =>
-          <div key={poke.pokemon + i}>
-            <h2>{poke.pokemon}</h2>
-            <img src={poke.url_image} />
-          </div>)
-      }
+      <div className='pokemonList'>
+        {
+          pokemon.map((poke, i) =>
+            <div className='pokemon' key={poke.pokemon + i} style={{ backgroundColor: poke.color_1 }}>
+              <h2>{poke.pokemon}</h2>
+              <img src={poke.url_image} />
+              <p>Pokedex Number: {poke.species_id}</p>
+              <p>Type: {poke.type_1} & {poke.type_2}</p>
+              <p>Height: {poke.height}</p>
+              <p>Weight: {poke.weight}</p>
+            </div>)
+        }
+      </div>
     </div>
   );
 }
